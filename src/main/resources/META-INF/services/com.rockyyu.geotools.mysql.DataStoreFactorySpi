@@ -1,0 +1,2 @@
+com.rockyyu.geotools.mysql.MySQLDataStoreFactory
+com.rockyyu.geotools.mysql.MySQLJNDIDataStoreFactory
