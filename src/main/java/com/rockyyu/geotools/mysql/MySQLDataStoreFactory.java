@@ -30,7 +30,7 @@ import org.geotools.jdbc.SQLDialect;
  * DataStoreFactory for MySQL database.
  *
  * @author David Winslow, The Open Planning Project
- * @author Nikolaos Pringouris <nprigour@gmail.com> added support for MySQL versions 5.6 (and above)
+ * @author Nikolaos Pringouris added support for MySQL versions 5.6 (and above)
  */
 public class MySQLDataStoreFactory extends JDBCDataStoreFactory {
     /** parameter for database type */
@@ -143,7 +143,8 @@ public class MySQLDataStoreFactory extends JDBCDataStoreFactory {
 
     /**
      * check if the version of MySQL is greater than 5.6.
-     *
+     * 
+     * @param dataStore
      * @return {@code true} if the database is higher than 5.6
      */
     protected static boolean isMySqlVersion56OrAbove(JDBCDataStore dataStore) {
@@ -165,6 +166,7 @@ public class MySQLDataStoreFactory extends JDBCDataStoreFactory {
      * check if the version of MySQL is 8.0 or greater. Needed to determine which syntax can be used
      * for eg. {@code ST_SRID()}
      *
+     * @param dataStore
      * @return {@code true} if the database varion is is 8.0 or greater
      */
     protected static boolean isMySqlVersion80OrAbove(JDBCDataStore dataStore) {

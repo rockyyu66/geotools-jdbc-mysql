@@ -39,7 +39,7 @@ import org.opengis.feature.type.GeometryDescriptor;
  * MySQL database dialect based on basic (non-prepared) statements.
  *
  * @author Justin Deoliveira, OpenGEO
- * @author Nikolaos Pringouris <nprigour@gmail.com> added support for MySQL versions 5.6 (and above)
+ * @author Nikolaos Pringouris added support for MySQL versions 5.6 (and above)
  */
 public class MySQLDialectBasic extends BasicSQLDialect {
 

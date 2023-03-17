@@ -1,16 +1,29 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
   <modelVersion>4.0.0</modelVersion>
-
-  <parent>
-    <groupId>org.geotools.jdbc</groupId>
-    <artifactId>gt-jdbc</artifactId>
-    <version>27-SNAPSHOT</version>
-  </parent>
 
   <groupId>com.rockyyu</groupId>
   <artifactId>geotools-jdbc-mysql</artifactId>
+  <version>27.1</version>
   <packaging>jar</packaging>
+
+  <properties>
+    <project.build.sourceEncoding>UTF8</project.build.sourceEncoding>
+    <maven.compiler.source>8</maven.compiler.source>
+    <maven.compiler.target>8</maven.compiler.target>
+    <java.version>8</java.version>
+  </properties>
+
+  <dependencies>
+    <dependency>
+      <groupId>org.geotools.jdbc</groupId>
+      <artifactId>gt-jdbc</artifactId>
+      <version>27-SNAPSHOT</version>
+      <type>pom</type>
+    </dependency>
+  </dependencies>
 
   <name>Geotools MySQL DataStore</name>
   <description>Geotools jdbc plugin for mysql database</description>
@@ -50,12 +63,6 @@
     </snapshotRepository>
   </distributionManagement>
 
-  <properties>
-    <project.build.sourceEncoding>UTF8</project.build.sourceEncoding>
-    <maven.compiler.source>8</maven.compiler.source>
-    <maven.compiler.target>8</maven.compiler.target>
-  </properties>
-
   <repositories>
     <repository>
       <releases>
@@ -90,7 +97,7 @@
           <plugin>
             <groupId>org.apache.maven.plugins</groupId>
             <artifactId>maven-source-plugin</artifactId>
-            <version>2.2.1</version>
+            <version>3.2.1</version>
             <executions>
               <execution>
                 <id>attach-sources</id>
@@ -104,7 +111,7 @@
           <plugin>
             <groupId>org.apache.maven.plugins</groupId>
             <artifactId>maven-javadoc-plugin</artifactId>
-            <version>2.9.1</version>
+            <version>3.5.0</version>
             <executions>
               <execution>
                 <id>attach-javadocs</id>
@@ -118,8 +125,8 @@
           <plugin>
             <groupId>org.apache.maven.plugins</groupId>
             <artifactId>maven-gpg-plugin</artifactId>
-            <version>1.5</version>
-            <!-- <executions>
+            <version>3.0.1</version>
+            <executions>
               <execution>
                 <id>sign-artifacts</id>
                 <phase>verify</phase>
@@ -127,16 +134,16 @@
                   <goal>sign</goal>
                 </goals>
               </execution>
-            </executions> -->
-            <configuration>
+            </executions>
+            <!-- <configuration>
               <skip>true</skip>
-            </configuration>
+            </configuration> -->
           </plugin>
           <!--             nexus 组件发布  -->
           <plugin>
             <groupId>org.sonatype.plugins</groupId>
             <artifactId>nexus-staging-maven-plugin</artifactId>
-            <version>1.6.7</version>
+            <version>1.6.13</version>
             <extensions>true</extensions>
             <configuration>
               <serverId>ossrh</serverId>
