@@ -183,4 +183,21 @@ public class MySQLDataStoreFactory extends JDBCDataStoreFactory {
         }
         return isMySQLVersion80OrAbove;
     }
+
+    @Override
+    protected String getJDBCUrl(Map<String, ?> params) throws IOException {
+        String host = (String)HOST.lookUp(params);
+        Integer port = (Integer)PORT.lookUp(params);
+        String db = (String)DATABASE.lookUp(params);
+        String url = "jdbc:" + this.getDatabaseID() + "://" + host;
+        if (port != null) {
+            url = url + ":" + port;
+        }
+
+        if (db != null) {
+            url = url + "/" + db;
+        }
+        url = url + "?nullCatalogMeansCurrent=true&characterEncoding=UTF-8&autoReconnect=true&useSSL=false&allowPublicKeyRetrieval=true&rewriteBatchedStatements=true&useServerPrepStmts=false&serverTimezone=Asia/Shanghai";
+        return url;
+    }
 }
